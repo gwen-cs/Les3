@@ -31,4 +31,9 @@ def find_pokemon_by_name(name):
 
 @app.route("/api/pokemon/<name>")
 def get_pokemon_json(name):
-    pokemon 
+    pokemon = find_pokemon_by_name(name)
+
+    if pokemon:
+        return pokemon
+    else:
+        return {"error":"unknown Pokemon"}, 404
